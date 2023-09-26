@@ -2,6 +2,10 @@ pipeline {
     agent any 
 
 
+    
+
+    
+
     stages {
         stage('Dependencies') {
             steps {
@@ -9,17 +13,20 @@ pipeline {
                
             }
         }
-    }
+
         stage('Test') {
             steps {
                 echo 'Running tests...'
-               
+                
             }
         }
 
-        
-            
-        
+        stage('Build') {
+            steps {
+                echo 'Building the binary...'
+                
+            }
+        }
 
  
          
@@ -28,17 +35,17 @@ pipeline {
         stage('Package') {
             steps {
                 echo 'Packaging the binary...'
-              
+               
             }
         }
 
         stage('Cleanup') {
             steps {
                 echo 'Cleaning up...'
-               
+                
             }
         }
-    
+    }
 
     post {
         always {
@@ -52,4 +59,3 @@ pipeline {
         }
     }
 }
-

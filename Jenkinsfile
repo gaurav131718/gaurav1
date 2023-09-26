@@ -9,7 +9,7 @@ pipeline {
                
             }
         }
-
+    }
         stage('Test') {
             steps {
                 echo 'Running tests...'
@@ -18,8 +18,8 @@ pipeline {
         }
 
         
-            }
-        }
+            
+        
 
  
          
@@ -28,17 +28,17 @@ pipeline {
         stage('Package') {
             steps {
                 echo 'Packaging the binary...'
-                sh 'make package'
+              
             }
         }
 
         stage('Cleanup') {
             steps {
                 echo 'Cleaning up...'
-                sh 'make clean'
+               
             }
         }
-    }
+    
 
     post {
         always {
